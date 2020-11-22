@@ -1,0 +1,16 @@
+node { 
+ 
+ 
+     checkout scm 
+ 
+ 
+     docker.withRegistry('https://registry.hub.docker.com', 'dockerjenkins288') { 
+ 
+ 
+         def customImage = docker.build("hpillama/Dockerwebapp") 
+ 
+ 
+         /* Push the container to the custom Registry */ 
+         customImage.push() 
+     } 
+ } 
